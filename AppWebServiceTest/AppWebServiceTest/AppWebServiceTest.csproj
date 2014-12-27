@@ -67,9 +67,12 @@
   <ItemGroup>
     <Content Include="ModelAppWSTest.edmx.sql" />
     <Content Include="Service1.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBHandler.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

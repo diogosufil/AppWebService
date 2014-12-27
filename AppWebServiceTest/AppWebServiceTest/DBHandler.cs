@@ -4,9 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Text;
 using System.Threading.Tasks;
-using AppWebServiceTest;
 
-namespace DataAccess
+namespace AppWebServiceTest
 {
     public class DBHandler
     {
@@ -15,12 +14,19 @@ namespace DataAccess
         public Boolean DBLogin(String username, String password)
         {
             Boolean isLogged = false;
+            Utilizador u = new Utilizador();
 
-            if (model.UtilizadorSet.Where(i => i.username == username).First())
+            try
             {
-                if(model.UtilizadorSet.Where(i => i.password == password)){
+                u = model.UtilizadorSet.Where(i => i.username == username).First();
+                if (u.password.Equals(password))
+                {
                     isLogged = true;
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
             return isLogged;
         }
